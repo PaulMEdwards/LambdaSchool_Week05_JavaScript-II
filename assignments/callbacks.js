@@ -63,6 +63,13 @@ function contains(target, list, cb) {
 }
 contains('yo-yo', items, (t) => console.log(t));
 
+//IIFE test
+var meme = (function () {
+  r='\n\nI like turtles...\n'+'https://www.youtube.com/watch?v=zbzz99wj2oA\n';
+  return r;
+})();
+console.log(meme);
+
 /* STRETCH PROBLEM */
 
 function removeDuplicates(array, cb) {
