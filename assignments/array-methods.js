@@ -78,6 +78,8 @@ console.log('');  // Blank line
 
 // ==== Challenge 4: Use .reduce() ====
 console.log(`The donations need to be tallied up and reported for tax purposes. Add up all the donations into a ticketPriceTotal array and log the result`);
+// Because the example in the JS 2 materials suggesting using {} after the => didn't work with "{total += r.donation}" below, I had to use the following video to understand:
+// https://www.youtube.com/watch?v=rRgD1yVwIvE&t=1550s
 const ticketPriceTotal = runners.reduce((total, r) => total += r.donation, 0);
 console.log(ticketPriceTotal);
 
