@@ -24,47 +24,56 @@ const items = ['Pencil', 'Notebook', 'yo-yo', 'Gum'];
 
 */
 
+console.log('items:');
+console.log(items);
 
 function getLength(arr, cb) {
-  // getLength passes the length of the array into the callback.
-  const l = arr.length;
-  cb(l);
+  console.log('\ngetLength passes the length of the array into the callback.');
+  cb(arr.length);
 }
-console.log(getLength(items, getLength));
+getLength(items, (len) => console.log(len));
 
 function last(arr, cb) {
-  // last passes the last item of the array into the callback.
-  const l = arr[arr.length-1];
-  cb(l);
+  console.log('\nlast passes the last item of the array into the callback.');
+  cb(arr[arr.length-1]);
 }
-console.log(last(items, last));
+last(items, (l) => console.log(l));
 
 function sumNums(x, y, cb) {
-  // sumNums adds two numbers (x, y) and passes the result to the callback.
-  const s = x+y;
-  cb(s);
+  console.log('\nsumNums adds two numbers (x, y) and passes the result to the callback.');
+  console.log('x: '+x);
+  console.log('y: '+y);
+  cb(x+y);
 }
-console.log(sumNums(2,3,sumNums));
+sumNums(2, 3, (s) => console.log(s));
 
 function multiplyNums(x, y, cb) {
-  // multiplyNums multiplies two numbers and passes the result to the callback.
-  const p = x*y;
-  cb(p);
+  console.log('\nmultiplyNums multiplies two numbers and passes the result to the callback.');
+  console.log('x: '+x);
+  console.log('y: '+y);
+  cb(x*y);
 }
-console.log(multiplyNums(x,y,multiplyNums));
+multiplyNums(3, 4, (p) => console.log(p));
 
-function contains(item, list, cb) {
-  // contains checks if an item is present inside of the given array/list.
-  // Pass true to the callback if it is, otherwise pass false.
-  const b = list.some(item);
-  contains(b);
+function contains(target, list, cb) {
+  console.log('\ncontains checks if an item is present inside of the given array/list.');
+  console.log('Pass true to the callback if it is, otherwise pass false.');
+  console.log('target: '+target);
+  cb(list.includes(target));
 }
-console.log(contains('yo-yo', items, contains));
+contains('yo-yo', items, (t) => console.log(t));
 
 /* STRETCH PROBLEM */
 
 function removeDuplicates(array, cb) {
-  // removeDuplicates removes all duplicate values from the given array.
-  // Pass the duplicate free array to the callback function.
-  // Do not mutate the original array.
+  console.log('\nremoveDuplicates removes all duplicate values from the given array.');
+  console.log('Pass the duplicate free array to the callback function.');
+  console.log('Do not mutate the original array.');
+
+  cb(Array.from(new Set(array)));
 }
+test=items.concat(items[2]).concat(items[0]).concat(items[3]).concat(items[1]);
+test.splice(1,0,items[3]);
+console.log('\nitems with duplicates:');
+console.log(test);
+removeDuplicates(test, (i) => console.log(i));
