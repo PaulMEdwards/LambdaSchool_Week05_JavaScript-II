@@ -21,8 +21,7 @@ console.log(g('Jared'));
 console.log(g('Raymond'));
 console.log(g('Earthlings'));
 
-// Blank line
-console.log('\n');
+console.log('');  // Blank line
 
 /* STRETCH PROBLEMS, Do not attempt until you have completed all previous tasks for today's project files */
 
@@ -40,30 +39,36 @@ console.log(c());
 console.log(c());
 console.log(c());
 
-// // Blank line
-// console.log('\n');
+console.log('');  // Blank line
 
-// debug = true;
-// // ==== Challenge 3: Create a counter function with an object that can increment and decrement ====
-// console.log('Return an object that has two methods called `increment` and `decrement`.');
-// console.log('`increment` should increment a counter variable in closure scope and return it.');
-// console.log('`decrement` should decrement the counter variable and return it.');
-// const counterFactory = () => {
-//   let count = 0;
-//   if (debug) console.log('count: '+count);
+// ==== Challenge 3: Create a counter function with an object that can increment and decrement ====
+console.log('Return an object that has two methods called `increment` and `decrement`.');
+console.log('`increment` should increment a counter variable in closure scope and return it.');
+console.log('`decrement` should decrement the counter variable and return it.');
+const counterFactory = () => {
+  let count = 0;
+  if (debug) console.log('count: '+count);
 
-//   increment = function() {
-//     return count++;
-//   };
-//   decrement = function() {
-//     return count--;
-//   };
-//   if (debug) console.log('count: '+count);
-// };
+  return {
+    increment() { 
+      let c = count++;
+      if (debug) console.log('count: '+c);
+      return c;
+    },
+    decrement() {
+      let c = count--;
+      if (debug) console.log('count: '+c);
+      return c;
+    }
+  };
+};
 
-// const f = counterFactory();
-// console.log(f.increment());
-// console.log(f.increment());
-// console.log(f.decrement());
-// console.log(f.increment());
-// console.log(f.decrement());
+let f = counterFactory();
+console.log(f.increment());
+console.log(f.increment());
+console.log(f.increment());
+console.log(f.decrement());
+console.log(f.increment());
+console.log(f.decrement());
+console.log(f.decrement());
+console.log(f.decrement());
