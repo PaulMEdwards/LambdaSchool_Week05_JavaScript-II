@@ -59,27 +59,70 @@ let fullName = [];
 runners.forEach(r => fullName.push(`${r.first_name} ${r.last_name}`));
 console.log(fullName);
 
+console.log('');  // Blank line
+
 // ==== Challenge 2: Use .map() ====
 console.log(`The event director needs to have all the runner's first names converted to uppercase because the director BECAME DRUNK WITH POWER. Convert each first name into all caps and log the result`);
 let allCaps = [];
 runners.forEach(r => allCaps.push(r.first_name.toUpperCase()));
 console.log(allCaps);
 
-// // ==== Challenge 3: Use .filter() ====
-// console.log(`The large shirts won't be available for the event due to an ordering issue.  Get a list of runners with large sized shirts so they can choose a different size. Return an array named largeShirts that contains information about the runners that have a shirt size of L and log the result`);
-// let largeShirts = [];
-// console.log(largeShirts);
+console.log('');  // Blank line
 
-// // ==== Challenge 4: Use .reduce() ====
-// console.log(`The donations need to be tallied up and reported for tax purposes. Add up all the donations into a ticketPriceTotal array and log the result`);
-// let ticketPriceTotal = [];
-// console.log(ticketPriceTotal);
+// ==== Challenge 3: Use .filter() ====
+console.log(`The large shirts won't be available for the event due to an ordering issue.  Get a list of runners with large sized shirts so they can choose a different size. Return an array named largeShirts that contains information about the runners that have a shirt size of L and log the result`);
+let largeShirts = runners.filter(s => s.shirt_size == 'L');
+console.log(largeShirts);
 
-// // ==== Challenge 5: Be Creative ====
-// console.log(`Now that you have used .forEach(), .map(), .filter(), and .reduce().  I want you to think of potential problems you could solve given the data set and the 5k fun run theme.  Try to create and then solve 3 unique problems using one or many of the array methods listed above.`);
+console.log('');  // Blank line
 
-// console.log(`Problem 1`);
+// ==== Challenge 4: Use .reduce() ====
+console.log(`The donations need to be tallied up and reported for tax purposes. Add up all the donations into a ticketPriceTotal array and log the result`);
+const ticketPriceTotal = runners.reduce((total, r) => total += r.donation, 0);
+console.log(ticketPriceTotal);
 
-// console.log(`Problem 2`);
+console.log('');  // Blank line
 
-// console.log(`Problem 3`);
+// ==== Challenge 5: Be Creative ====
+console.log(`Now that you have used .forEach(), .map(), .filter(), and .reduce().  I want you to think of potential problems you could solve given the data set and the 5k fun run theme.  Try to create and then solve 3 unique problems using one or many of the array methods listed above.`);
+
+console.log('');  // Blank line
+
+console.log(`Problem 1`);
+console.log(`Mailing List:`)
+let mailingList = [];
+runners.forEach(r => mailingList.push({id:r.id,first_name:r.first_name,email:r.email}));
+console.log(mailingList);
+
+console.log('');  // Blank line
+
+console.log(`Problem 2`);
+console.log(`Unique Companies Sorted Ascending:`);
+// https://medium.com/dailyjs/how-to-remove-array-duplicates-in-es6-5daa8789641c
+let companies = [];
+runners.forEach(r => companies.push(r.company_name));
+const uniqueCompanies = Array.from(new Set(companies)).sort();
+console.log(uniqueCompanies);
+console.log('count: '+uniqueCompanies.length);
+
+console.log('');  // Blank line
+
+console.log(`Problem 3`);
+console.log(`Runners per Company`);
+// https://stackoverflow.com/a/50338217/1217760
+let data = [];
+runners.forEach(r => data.push({company_name:r.company_name,runners:1}));
+
+let result = data.reduce((prev, next) =>{
+if (next.company_name in prev) {
+  prev[next.company_name].runners += next.runners;
+} else {
+   prev[next.company_name] = next;
+}
+return prev;
+}, {});
+
+console.log("Sorted by # of runners descending, then Company Name ascending:");
+// https://flaviocopes.com/how-to-sort-array-of-objects-by-property-javascript/
+let runnersPerCompany = Object.keys(result).map(company_name => result[company_name]).sort((a, b) => (a.runners < b.runners) ? 1 : (a.runners === b.runners) ? ((a.company_name > b.company_name) ? 1 : -1) : -1 );
+console.log(runnersPerCompany);
