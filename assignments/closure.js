@@ -1,3 +1,7 @@
+console.log('==========');
+console.log('closure.js');
+console.log('==========\n');
+
 let debug = false;
 
 // ==== Challenge 1: Write your own closure ====

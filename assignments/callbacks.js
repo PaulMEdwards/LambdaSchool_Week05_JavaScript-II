@@ -1,3 +1,7 @@
+console.log('============');
+console.log('callbacks.js');
+console.log('============\n');
+
 // Create a higher order function and invoke the callback function to test your work. You have been provided an example of a problem and a solution to see how this works with our items array.  Study both the problem and the solution to figure out the rest of the problems.
 
 const items = ['Pencil', 'Notebook', 'yo-yo', 'Gum'];
@@ -65,7 +69,7 @@ contains('yo-yo', items, (t) => console.log(t));
 
 //IIFE test
 var meme = (function () {
-  r='\n\nI like turtles...\n'+'https://www.youtube.com/watch?v=zbzz99wj2oA\n';
+  r='\n\nIIFE likes turtles...\n'+'https://www.youtube.com/watch?v=zbzz99wj2oA\n\n';
   return r;
 })();
 console.log(meme);
