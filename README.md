@@ -51,3 +51,7 @@ We have learned that closures allow us to access values in scope that have alrea
 
 * [x] Go back through the stretch problems that you skipped over and complete as many as you can.
 * [x] Look up what an IIFE is in JavaScript and experiment with them
+
+## Live Site
+
+https://paulmedwards.github.io/LambdaSchool_Week05_JavaScript-II/assignments/
