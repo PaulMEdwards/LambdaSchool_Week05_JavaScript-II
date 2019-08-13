@@ -95,7 +95,7 @@ console.log(`Now that you have used .forEach(), .map(), .filter(), and .reduce()
 console.log('');  // Blank line
 
 console.log(`Problem 1`);
-console.log(`Mailing List:`)
+console.log(`Mailing List:`);
 let mailingList = [];
 runners.forEach(r => mailingList.push({id:r.id,first_name:r.first_name,email:r.email}));
 console.log(mailingList);
